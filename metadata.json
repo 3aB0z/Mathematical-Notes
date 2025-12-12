@@ -1,0 +1,5 @@
+{
+  "name": "Mathematical Notes",
+  "description": "A cross-platform React application for taking mathematical notes with real-time KaTeX rendering, guided template input, and organizational tools.",
+  "requestFramePermissions": []
+}

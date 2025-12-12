@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathNote Pro</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                850: '#1e293b',
+                900: '#0f172a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <!-- MathLive JS -->
+    <script defer src="//unpkg.com/mathlive"></script>
+    <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+<style>
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1; 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; 
+  }
+
+  /* Editor Styles */
+  .note-editor {
+    outline: none;
+    min-height: 50vh;
+  }
+  
+  /* MathField Customization */
+  math-field {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.1em;
+    padding: 2px 4px;
+    border-radius: 4px;
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    /* Hide the default virtual keyboard toggle if specific config is passed, 
+       but by default it might show. We can hide via CSS if desired: */
+  }
+  
+  math-field:focus-within {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #93c5fd;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Placeholder Styling within MathLive is handled natively, 
+     but we can ensure it looks distinct */
+  
+  /* Hide the menu toggle for a cleaner look if using custom keyboard */
+  math-field::part(menu-toggle) {
+    display: none;
+  }
+</style>
+</head>
+  <body class="bg-gray-100 text-gray-900 overflow-hidden h-screen w-screen font-sans">
+    <div id="root" class="h-full w-full"></div>
+  </body>
+</html>
